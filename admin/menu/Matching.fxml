@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #FFE08C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.admin.menu.MatchingContoller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="418.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="82.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="327.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TableView fx:id="matchingList" maxWidth="410.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+        <columns>
+          <TableColumn fx:id="name1" text="회원1 이름" />
+          <TableColumn fx:id="name2" text="회원2 이름" />
+            <TableColumn fx:id="day" prefWidth="156.0" text="매칭 요청일자" />
+            <TableColumn fx:id="check1" prefWidth="90.0" text="수락여부" />
+        </columns>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" />
+         </GridPane.margin>
+      </TableView>
+      <Label text="매칭 내역 관리">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="150.0" />
+         </GridPane.margin>
+      </Label>
+      <Button fx:id="cancel" mnemonicParsing="false" onAction="#MatchingCancelProc" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #EDCE7A;" text="취소" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="50.0" left="15.0" />
+         </GridPane.margin>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</GridPane>

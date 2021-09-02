@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="721.0" prefWidth="559.0" spacing="12.0" style="-fx-background-color: FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.register.RegisterController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="58.0" prefWidth="523.0">
+         <children>
+            <Label text="Love Project 회원가입">
+               <font>
+                  <Font name="Avenir Black Oblique" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="172.0" prefWidth="544.0">
+        <columnConstraints>
+          <ColumnConstraints maxWidth="166.0" minWidth="87.0" prefWidth="116.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="266.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="162.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="33.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="idText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <PasswordField fx:id="pwText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="pwTextConfirm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#idCheckProc" prefHeight="25.0" text="id 중복확인" GridPane.columnIndex="2" />
+            <Label text="ID">
+               <font>
+                  <Font name="Avenir Black Oblique" size="13.0" />
+               </font></Label>
+            <Label text="Password" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Avenir Black Oblique" size="13.0" />
+               </font></Label>
+            <Label text="Password 확인" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Avenir Black Oblique" size="13.0" />
+               </font></Label>
+            <Label text="이름" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <Label text="핸드폰" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fx:id="imageView" fitHeight="180.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: white;" translateX="-25.0" translateY="-5.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="heightText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="신장" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="544.0" spacing="40.0">
+         <children>
+            <Label text="성별">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <RadioButton fx:id="manRadio" mnemonicParsing="false" text="남">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+               <padding>
+                  <Insets left="55.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton fx:id="womanRadio" mnemonicParsing="false" text="여" toggleGroup="$gender" />
+            <Label fx:id="profileLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" prefHeight="17.0" prefWidth="118.0" translateX="95.0" translateY="25.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="523.0" spacing="40.0">
+         <children>
+            <Label text="지역">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="areaCombo" prefWidth="150.0" promptText="지역 선택" translateX="53.0" />
+            <Button fx:id="profileButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setProfileProc" text="프로필 사진 찾기" translateX="115.0" translateY="8.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="523.0" spacing="40.0">
+         <children>
+            <Label text="나이">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <ComboBox fx:id="ageCombo" prefWidth="150.0" promptText="나이 선택" translateX="53.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="523.0" spacing="40.0">
+         <children>
+            <Label text="흡연 여부">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <RadioButton fx:id="smokingRadio" mnemonicParsing="false" text="흡연">
+               <toggleGroup>
+                  <ToggleGroup fx:id="smoking" />
+               </toggleGroup>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton fx:id="nonSmokingRadio" mnemonicParsing="false" text="비흡연" toggleGroup="$smoking" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="544.0" spacing="20.0">
+         <children>
+            <Label text="MBTI">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="Avenir Black Oblique" size="13.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="29.0" translateX="65.0">
+               <children>
+                  <RadioButton fx:id="mbti_i" mnemonicParsing="false" text="I">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="first" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="mbti_e" mnemonicParsing="false" text="E" toggleGroup="$first" />
+               </children>
+               <opaqueInsets>
+                  <Insets left="40.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="32.0" translateX="65.0">
+               <children>
+                  <RadioButton fx:id="mbti_n" mnemonicParsing="false" text="N">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="second" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="mbti_s" mnemonicParsing="false" text="S" toggleGroup="$second" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="30.0" translateX="65.0">
+               <children>
+                  <RadioButton fx:id="mbti_f" mnemonicParsing="false" text="F">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="third" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="mbti_t" mnemonicParsing="false" text="T" toggleGroup="$third" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="39.0" translateX="68.0">
+               <children>
+                  <RadioButton fx:id="mbti_p" mnemonicParsing="false" text="P">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="fourth" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="mbti_j" mnemonicParsing="false" text="J" toggleGroup="$fourth" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="37.0" prefWidth="183.0" translateX="70.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="78.0" text="MBTI 검사" />
+                  <Hyperlink onAction="#openBrowserProc" prefHeight="25.0" prefWidth="133.0" text="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" textFill="#182bff" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="523.0" spacing="20.0">
+         <children>
+            <Label text="혈액형">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <RadioButton fx:id="blood_a" mnemonicParsing="false" text="A">
+               <padding>
+                  <Insets left="65.0" />
+               </padding>
+               <toggleGroup>
+                  <ToggleGroup fx:id="bloodType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="blood_b" mnemonicParsing="false" text="B" toggleGroup="$bloodType" />
+            <RadioButton fx:id="blood_ab" mnemonicParsing="false" text="AB" toggleGroup="$bloodType" />
+            <RadioButton fx:id="blood_o" mnemonicParsing="false" text="O" toggleGroup="$bloodType" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="544.0" spacing="40.0">
+         <children>
+            <Label text="음주">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <ComboBox fx:id="drinkCombo" prefWidth="150.0" promptText="주량 선택" translateX="53.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="544.0" spacing="45.0">
+         <children>
+            <Label text="자기소개글">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+               </font></Label>
+            <TextArea fx:id="self_introArea" maxWidth="-Infinity" prefHeight="76.0" prefWidth="300.0" translateX="15.0" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="31.0" prefWidth="544.0" spacing="115.0">
+         <children>
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#insertProc" text="회원가입" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelProc" text="취소" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="15.0" />
+   </padding>
+</VBox>
