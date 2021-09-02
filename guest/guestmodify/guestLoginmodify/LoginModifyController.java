@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import loveproject.guest.guestLoginmodifyService.LoginModifyService;
+import loveproject.guest.guestLoginmodify.guestLoginmodifyService.LoginModifyService;
 
 public class LoginModifyController implements Initializable {
 

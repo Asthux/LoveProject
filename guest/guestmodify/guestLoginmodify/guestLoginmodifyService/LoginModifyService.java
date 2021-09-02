@@ -1,4 +1,4 @@
-package loveproject.guest.guestLoginmodifyService;
+package loveproject.guest.guestLoginmodify.guestLoginmodifyService;
 
 import java.io.IOException;
 
