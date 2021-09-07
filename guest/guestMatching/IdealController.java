@@ -1,11 +1,11 @@
-package loveproject.guest.guestIdeal;
+package loveproject.guest.guestMatching.guestIdeal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import loveproject.guest.guestIdeal.service.IdealService;
+import loveproject.guest.guestMatching.guestIdeal.service.IdealService;
 
 
 public class IdealController implements Initializable{
