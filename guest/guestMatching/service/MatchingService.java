@@ -1,4 +1,4 @@
-package loveproject.guest.guestMatching.guestIdeal.service;
+package loveproject.guest.guestMatching.service;
 
 import loveproject.commonService.CommonService;
 import loveproject.guest.dao.GuestDAO;
