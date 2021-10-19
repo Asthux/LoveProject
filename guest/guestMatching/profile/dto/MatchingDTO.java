@@ -1,4 +1,4 @@
-package loveproject.guest.profile.dto;
+package loveproject.guest.guestMatching.profile.dto;
 
 public class MatchingDTO {
 	private String id1;

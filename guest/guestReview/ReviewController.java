@@ -20,15 +20,9 @@ public class ReviewController implements Initializable{
 		reviewSvc = new ReviewService();
 	}
 	
-	public void reportProc() {
-		reviewSvc.reportProc(reviewForm);
-	}
+	public void reportProc() {reviewSvc.reportProc(reviewForm);}
 	public void cancelProc() {
 		reviewSvc.cancelProc(reviewForm);
 	}
-	public void goodProc() {
-		reviewSvc.goodProc(reviewForm);
-	}
-
 
 }

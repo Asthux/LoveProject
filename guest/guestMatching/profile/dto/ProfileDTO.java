@@ -1,4 +1,4 @@
-package loveproject.guest.profile.dto;
+package loveproject.guest.guestMatching.profile.dto;
 /*
 SQL> desc profile;
  Name                   Null?    Type

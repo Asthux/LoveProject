@@ -1,6 +1,6 @@
 package loveproject.register.dao;
 
-import loveproject.register.dto.RegisterDTO;
+import loveproject.register.dto.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +23,7 @@ public class RegisterDAO {
         }
     }
 
-    public RegisterDTO selectId(String id) {
+    public MemberDTO selectId(String id) {
         String sql = "SELECT * FROM loveProject WHERE id = ?";
         PreparedStatement ps;
         ResultSet rs;
@@ -33,10 +33,9 @@ public class RegisterDAO {
             ps.setString(1, id);
             rs = ps.executeQuery();
             if(rs.next()) {
-                RegisterDTO dto = new RegisterDTO(rs.getString(2), rs.getString(3), rs.getString(4),
+                MemberDTO dto = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
                 		rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
-                		rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15),
-                		rs.getString(16), rs.getString(17));
+                		rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15));
                 return dto;
             }
         } catch (Exception e) {
@@ -61,8 +60,8 @@ public class RegisterDAO {
 	private String selfIntro;
 	private String profile;
  */
-    public int insert(RegisterDTO dto) {
-        String sql = "INSERT INTO loveProject VALUES(loveProject_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,0,0,0)";
+    public int insert(MemberDTO dto) {
+        String sql = "INSERT INTO loveProject VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,0)";
         PreparedStatement ps;
 
         try {
@@ -80,6 +79,7 @@ public class RegisterDAO {
             ps.setString(11, dto.getSmoking());
             ps.setString(12, dto.getBloodType());
             ps.setString(13, dto.getSelfIntro());
+            ps.setString(14, dto.getProfile());
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

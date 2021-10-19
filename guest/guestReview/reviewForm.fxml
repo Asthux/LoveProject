@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.guestReview.ReviewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="477.0" style="-fx-background-color: #FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.guestReview.ReviewController">
    <children>
-      <Label alignment="CENTER" prefHeight="48.0" prefWidth="352.0" text="후기">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="review" prefHeight="200.0" prefWidth="200.0" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+      <VBox alignment="CENTER" prefHeight="248.0" prefWidth="477.0">
          <children>
-            <Button fx:id="reportButton" mnemonicParsing="false" onAction="#reportProc" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: #4C4C4C;" text="신고" textFill="#b4c8c9">
-               <HBox.margin>
-                  <Insets left="3.0" />
-               </HBox.margin></Button>
-            <Button fx:id="goodButton" mnemonicParsing="false" onAction="#goodProc" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: #4C4C4C;" text="좋아요" textFill="#b4c8c9" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelProc" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: #4C4C4C;" text="취소" textFill="#b4c8c9">
-               <HBox.margin>
-                  <Insets right="3.0" />
-               </HBox.margin></Button>
+            <Label prefHeight="40.0" prefWidth="97.0" text="Love Project 후기" />
+            <TextArea maxWidth="-Infinity" prefHeight="156.0" prefWidth="361.0" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="58.0" prefWidth="477.0" spacing="40.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#reportProc" prefHeight="54.0" prefWidth="73.0" text="후기 등록" />
+            <Button mnemonicParsing="false" onAction="#cancelProc" prefHeight="58.0" prefWidth="74.0" text="취소" />
          </children>
       </HBox>
    </children>

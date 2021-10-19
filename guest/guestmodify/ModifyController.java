@@ -19,18 +19,11 @@ public class ModifyController implements Initializable{
 	}
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		modifySvc = new ModifyService();
-		
-	}
+	public void initialize(URL location, ResourceBundle resources) {modifySvc = new ModifyService();}
 	
 	public void cancelProc() {
 		modifySvc.cancelProc(modifyForm);
 	}
-	public void modifyProc() {
-		modifySvc.modifyService(modifyForm);
-	}
-	
-	
+	public void modifyProc() {modifySvc.modifyService(modifyForm);}
 
 }

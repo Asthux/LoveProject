@@ -1,11 +1,11 @@
-package loveproject.guest.guestLoginmodify;
+package loveproject.guest.guestmodify.guestLoginModify;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import loveproject.guest.guestLoginmodify.guestLoginmodifyService.LoginModifyService;
+import loveproject.guest.guestmodify.guestLoginModify.guestLoginmodifyService.LoginModifyService;
 
 public class LoginModifyController implements Initializable {
 

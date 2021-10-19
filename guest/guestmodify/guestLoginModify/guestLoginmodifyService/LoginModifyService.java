@@ -1,4 +1,4 @@
-package loveproject.guest.guestLoginmodify.guestLoginmodifyService;
+package loveproject.guest.guestmodify.guestLoginModify.guestLoginmodifyService;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import loveproject.commonService.CommonService;
 import loveproject.guest.guestmodify.ModifyController;
 import loveproject.login.dao.LoginDAO;
-import loveproject.login.dto.LoginDTO;
+import loveproject.register.dto.MemberDTO;
 
 public class LoginModifyService {
 
@@ -28,7 +28,7 @@ public class LoginModifyService {
 		PasswordField pwText = (PasswordField)loginmodifyForm.lookup("#pwText");
 
 		LoginDAO dao = new LoginDAO();
-		LoginDTO dto = dao.selectId(idText.getText());
+		MemberDTO dto = dao.selectId(idText.getText());
 		if(dto != null && dto.getPw().equals(pwText.getText())) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestmodify/modifyForm.fxml"));
 			try {

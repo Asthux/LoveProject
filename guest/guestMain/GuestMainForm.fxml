@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="430.0" spacing="20.0" style="-fx-background-color: #FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.GuestController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="430.0" spacing="20.0" style="-fx-background-color: #FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.guestMain.GuestController">
    <children>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="430.0">
          <children>
             <Button mnemonicParsing="false" onAction="#logoutProc" prefHeight="27.0" prefWidth="76.0" text="Logout" translateX="-100.0" />
-            <Label text="My Page" />
-            <Button fx:id="reviewButton" mnemonicParsing="false" onAction="#reviewProc" text="후기 남기기" translateX="100.0" />
+            <Label text="My Page">
+               <font>
+                  <Font name="Avenir Black Oblique" size="13.0" />
+               </font></Label>
+            <Button fx:id="reviewButton" mnemonicParsing="false" onAction="#reviewOpenProc" text="후기 남기기" translateX="100.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="298.0" prefWidth="430.0">
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <ImageView fitHeight="208.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button mnemonicParsing="false" onAction="#modifyProc" text="프로필 수정" />
+                  <ImageView fx:id="profile" fitHeight="208.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" onAction="#modifyOpenProc" text="프로필 수정" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="218.0" prefWidth="94.0" spacing="15.0">
@@ -33,26 +37,33 @@
                   <Label text="MBTI" />
                   <Label text="혈액형" />
                   <Label text="음주" />
-                  <Label text="자기소개" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="218.0" prefWidth="94.0" spacing="15.0">
                <children>
-                  <Label text="이름" />
-                  <Label text="신장" />
-                  <Label text="지역" />
-                  <Label text="나이" />
-                  <Label text="MBTI" />
-                  <Label text="혈액형" />
-                  <Label text="음주" />
-                  <Label text="자기소개" />
+                  <Label fx:id="name" text="이름" />
+                  <Label fx:id="height" text="신장" />
+                  <Label fx:id="area" text="지역" />
+                  <Label fx:id="age" text="나이" />
+                  <Label fx:id="mbti" text="MBTI" />
+                  <Label fx:id="bloodType" text="혈액형" />
+                  <Label fx:id="drink" text="음주" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="113.0" prefWidth="430.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="430.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#idealProc" prefHeight="61.0" prefWidth="168.0" text="LoveProject START!" />
+            <Label text="자기소개" />
+            <Label fx:id="selfIntro" text="자기소개" translateX="30.0" />
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="105.0" prefWidth="430.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#matchingOpenProc" prefHeight="61.0" prefWidth="168.0" text="LoveProject START!" />
          </children>
       </HBox>
    </children>

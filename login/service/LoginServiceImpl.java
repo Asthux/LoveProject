@@ -4,15 +4,17 @@ package loveproject.login.service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import loveproject.commonService.CommonService;
-import loveproject.guest.GuestController;
-import loveproject.login.LoginController;
+import loveproject.guest.guestMain.GuestController;
 import loveproject.login.dao.LoginDAO;
-import loveproject.login.dto.LoginDTO;
 import loveproject.admin.AdminContoller;
+import loveproject.register.dto.MemberDTO;
 
 
 import java.io.IOException;
@@ -22,13 +24,13 @@ public class LoginServiceImpl implements LoginService{
 private String id;
 	
 	@Override
-    public LoginDTO loginProc(Parent loginForm) {
+    public MemberDTO loginProc(Parent loginForm) {
         TextField idText = (TextField) loginForm.lookup("#idText");
         PasswordField pwText = (PasswordField) loginForm.lookup("#pwText");
         id = idText.getText();
 
         LoginDAO dao = new LoginDAO();
-        LoginDTO dto = dao.selectId(id);
+        MemberDTO dto = dao.selectId(id);
         if (dto != null && dto.getPw().equals(pwText.getText())) {
             return dto;
         } else{
@@ -38,16 +40,36 @@ private String id;
     }
 
    public void guestOpenForm(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/GuestMainForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestMain/GuestMainForm.fxml"));
         Parent guestMainForm;
-
+        LoginDAO dao = new LoginDAO();
+       MemberDTO dto = dao.selectId(id);
         try {
             guestMainForm = loader.load();
+            Label name = (Label)guestMainForm.lookup("#name");
+            Label height = (Label)guestMainForm.lookup("#height");
+            Label area = (Label)guestMainForm.lookup("#area");
+            Label age = (Label)guestMainForm.lookup("#age");
+            Label mbti = (Label)guestMainForm.lookup("#mbti");
+            Label bloodType = (Label)guestMainForm.lookup("#bloodType");
+            Label drink = (Label)guestMainForm.lookup("#drink");
+            Label selfIntro = (Label)guestMainForm.lookup("#selfIntro");
+            ImageView profile = (ImageView)guestMainForm.lookup("#profile");
+            name.setText(dto.getName());
+            height.setText(dto.getHeight());
+            area.setText(dto.getArea());
+            age.setText(dto.getAge());
+            mbti.setText(dto.getMbti());
+            bloodType.setText(dto.getBloodType());
+            drink.setText(dto.getDrink());
+            selfIntro.setText(dto.getSelfIntro());
+            Image image = new Image(dto.getProfile());
+            profile.setImage(image);
             GuestController guestCtrl = loader.getController();
             guestCtrl.setGuestForm(guestMainForm);
             guestCtrl.setLoginId(id);
             Stage stage = new Stage();
-            stage.setTitle("회원 메인 페이지");
+            stage.setTitle("Love Project");
             stage.setScene(new Scene(guestMainForm));
             stage.show();
 
@@ -66,7 +88,7 @@ private String id;
             adminCtrl.setAdminForm(adminMainForm);
 
             Stage stage = new Stage();
-            stage.setTitle("관리자 메인 페이지");
+            stage.setTitle("Love Project");
             stage.setScene(new Scene(adminMainForm));
             stage.show();
 

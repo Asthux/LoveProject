@@ -1,5 +1,6 @@
 package loveproject.admin.dto;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class GuestModel {
@@ -9,19 +10,17 @@ public class GuestModel {
 	private StringProperty gender;
 	private StringProperty area;
 	private StringProperty blackList;
-	private StringProperty good;
 	
 	public GuestModel(String id, StringProperty name, StringProperty age, StringProperty gender, StringProperty area,
-			StringProperty blackList, StringProperty good) {
+			StringProperty blackList) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.area = area;
 		this.blackList = blackList;
-		this.good = good;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -58,12 +57,7 @@ public class GuestModel {
 	public void setBlackList(StringProperty blackList) {
 		this.blackList = blackList;
 	}
-	public StringProperty getGood() {
-		return good;
-	}
-	public void setGood(StringProperty good) {
-		this.good = good;
-	}
+
 	
 	
 	

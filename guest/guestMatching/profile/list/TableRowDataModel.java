@@ -1,4 +1,4 @@
-package loveproject.guest.profile.list;
+package loveproject.guest.guestMatching.profile.list;
 
 import javafx.beans.property.StringProperty;
 

@@ -1,10 +1,10 @@
-package loveproject.guest.profile.select.service;
+package loveproject.guest.guestMatching.profile.select.service;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import loveproject.commonService.CommonService;
-import loveproject.guest.profile.dao.ProfileDAO;
-import loveproject.guest.profile.dto.ProfileDTO;
+import loveproject.guest.guestMatching.profile.dao.ProfileDAO;
+import loveproject.guest.guestMatching.profile.dto.ProfileDTO;
 
 public class SelectService {
 	

@@ -15,11 +15,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import loveproject.admin.dao.AdminDAO;
-import loveproject.admin.dto.AdminGuestDTO;
 import loveproject.admin.dto.GuestModel;
 import loveproject.admin.service.GuestManagementService;
 import loveproject.admin.service.GuestService;
 import loveproject.commonService.CommonService;
+import loveproject.register.dto.MemberDTO;
 
 public class GuestContoller implements Initializable{
 	@FXML
@@ -55,7 +55,7 @@ public class GuestContoller implements Initializable{
 private Parent guestForm;
 private GuestService guestSvc;
 private AdminDAO dao = new AdminDAO();
-private ArrayList<AdminGuestDTO> list = new ArrayList<AdminGuestDTO>();
+private ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 private ObservableList<GuestModel> tablelist;
 
 public Parent getGuestForm() {
@@ -68,8 +68,8 @@ public void setGuestForm(Parent guestForm) {
 
 public void listseting() {
 		tablelist = FXCollections.observableArrayList();// ***** 리스트를 회원DB 전체를 가져와서 만들어지도록
-		for(AdminGuestDTO dto : list) {
-	 tablelist.add(new GuestModel(dto.getId(), new SimpleStringProperty(dto.getName()), new SimpleStringProperty(dto.getAge()), new SimpleStringProperty(dto.getGender()), new SimpleStringProperty(dto.getArea()), new SimpleStringProperty(dto.getBlacklist()), new SimpleStringProperty(dto.getGood())));
+		for(MemberDTO dto : list) {
+	 tablelist.add(new GuestModel(dto.getId(), new SimpleStringProperty(dto.getName()), new SimpleStringProperty(dto.getAge()), new SimpleStringProperty(dto.getGender()), new SimpleStringProperty(dto.getArea()), new SimpleStringProperty(dto.getBlacklist())));
 		}
 		
 		name.setCellValueFactory(cellData -> cellData.getValue().getName());

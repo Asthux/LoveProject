@@ -1,11 +1,11 @@
-package loveproject.guest.profile.select;
+package loveproject.guest.guestMatching.profile.select;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import loveproject.guest.profile.select.service.SelectService;
+import loveproject.guest.guestMatching.profile.select.service.SelectService;
 
 public class SelectController implements Initializable{
 	

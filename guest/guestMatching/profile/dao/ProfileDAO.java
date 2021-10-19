@@ -1,4 +1,4 @@
-package loveproject.guest.profile.dao;
+package loveproject.guest.guestMatching.profile.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import loveproject.guest.profile.dto.ProfileDTO;
+import loveproject.guest.guestMatching.profile.dto.ProfileDTO;
 
 public class ProfileDAO {
 private Connection con;

@@ -8,7 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import loveproject.commonService.CommonService;
 import loveproject.guest.dao.GuestDAO;
-import loveproject.guest.dto.GuestDTO;
+import loveproject.register.dto.MemberDTO;
 
 public class ModifyService {
 	public void cancelProc(Parent modifyForm) {
@@ -18,30 +18,17 @@ public class ModifyService {
 
 	public void modifyService(Parent modifyForm) {
 		try {
-			PasswordField pwText = (PasswordField)modifyForm.lookup("#password");
-	        PasswordField pwTextConfirm = (PasswordField)modifyForm.lookup("#passwordCheck");
+			PasswordField pwText = (PasswordField)modifyForm.lookup("#pw");
+	        PasswordField pwTextConfirm = (PasswordField)modifyForm.lookup("#confirmPw");
 
-	        TextField nameText = (TextField)modifyForm.lookup("#nameText");
-	        TextField phoneText = (TextField)modifyForm.lookup("#phoneText");
-	        TextField heightText = (TextField)modifyForm.lookup("#heightText");
-	        
+	        TextField nameText = (TextField)modifyForm.lookup("#name");
+	        TextField heightText = (TextField)modifyForm.lookup("#height");
 
-	        
-	        String phone = phoneText.getText();
 	        String name = nameText.getText();
 	        String height = heightText.getText();
 	        
 	        String pw = pwText.getText();
 	        String confirm = pwTextConfirm.getText();
-
-	        RadioButton manRadio = (RadioButton)modifyForm.lookup("#manRadio");
-	        RadioButton womanRadio = (RadioButton)modifyForm.lookup("#womanRadio");
-
-	        String gender = "";
-	        if(manRadio.isSelected())
-	            gender += "남";
-	        else if(womanRadio.isSelected())
-	            gender += "여";
 
 	        RadioButton smokingRadio = (RadioButton)modifyForm.lookup("#smokingRadio");
 	        RadioButton nonSmokingRadio = (RadioButton)modifyForm.lookup("#smokingRadio");
@@ -67,35 +54,9 @@ public class ModifyService {
 	        else if (blood_o.isSelected())
 	            bloodType += "O형";
 
-	        RadioButton mbti_i = (RadioButton)modifyForm.lookup("#mbti_i");
-	        RadioButton mbti_e = (RadioButton)modifyForm.lookup("#mbti_e");
-	        RadioButton mbti_n = (RadioButton)modifyForm.lookup("#mbti_n");
-	        RadioButton mbti_s = (RadioButton)modifyForm.lookup("#mbti_s");
-	        RadioButton mbti_f = (RadioButton)modifyForm.lookup("#mbti_f");
-	        RadioButton mbti_t = (RadioButton)modifyForm.lookup("#mbti_t");
-	        RadioButton mbti_p = (RadioButton)modifyForm.lookup("#mbti_p");
-	        RadioButton mbti_j = (RadioButton)modifyForm.lookup("#mbti_j");
+			TextField mbtiText = (TextField)modifyForm.lookup("#mbti");
+			String mbti = mbtiText.getText();
 
-	        String mbti = "";
-	        if (mbti_i.isSelected())
-	            mbti += "I";
-	        else if (mbti_e.isSelected())
-	            mbti += "E";
-
-	        if (mbti_n.isSelected())
-	            mbti += "N";
-	        else if (mbti_s.isSelected())
-	            mbti += "S";
-
-	        if (mbti_f.isSelected())
-	            mbti += "F";
-	        else if (mbti_t.isSelected())
-	            mbti += "T";
-
-	        if (mbti_p.isSelected())
-	            mbti += "P";
-	        else if (mbti_j.isSelected())
-	            mbti += "J";
 	        ComboBox<String> areaCombo = (ComboBox<String>)modifyForm.lookup("#areaCombo");
 	        String area = "";
 	        if(areaCombo.getValue() != null) {
@@ -116,19 +77,17 @@ public class ModifyService {
 			Label id = (Label)modifyForm.lookup("#idDB");
 			
 		    if(pw==confirm) {
-	    		GuestDTO dto = new GuestDTO();
+				MemberDTO dto = new MemberDTO();
 	    		GuestDAO dao = new GuestDAO();
     			dto.setPw(pw);
 		    	dto.setAge(age);
 			    dto.setArea(area);
-			    dto.setGender(gender);
 			    dto.setMbti(mbti);
 			    dto.setBloodType(bloodType);
 			    dto.setHeight(height);
 			    dto.setDrink(drink);
 			    dto.setSmoking(smoking);
 			    dto.setName(name);
-			    dto.setPhone(phone);
 			    dto.setId(id.getText());
 			    dao.modify(dto);
 			    CommonService.Msg("수정완료");

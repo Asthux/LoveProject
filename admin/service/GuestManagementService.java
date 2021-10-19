@@ -1,8 +1,6 @@
 package loveproject.admin.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,9 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import loveproject.admin.AdminContoller;
 import loveproject.admin.dao.AdminDAO;
-import loveproject.admin.dto.AdminGuestDTO;
 import loveproject.admin.menu.GuestManaContoller;
 import loveproject.commonService.CommonService;
+import loveproject.register.dto.MemberDTO;
 
 public class GuestManagementService {
 	@FXML
@@ -77,8 +75,8 @@ public void guest(Parent form) {
 	
 	try {
 		Parent guestManaForm = loader.load();
-		
-		AdminGuestDTO dto = dao.result(dao, id);
+
+		MemberDTO dto = dao.result(dao, id);
 		
 		ageCombo = (ComboBox<String>)guestManaForm.lookup("#ageCombo"); 
 		if(ageCombo != null) {
@@ -107,7 +105,7 @@ public void guest(Parent form) {
 		bloodCombo = (ComboBox<String>)guestManaForm.lookup("#bloodCombo");
 		if(bloodCombo != null) {
 			bloodCombo.getItems().addAll("A","B","O", "AB");
-			bloodCombo.setValue(dto.getBloodtype());
+			bloodCombo.setValue(dto.getBloodType());
 		}
 		
 		drinkCombo = (ComboBox<String>)guestManaForm.lookup("#drinkCombo");
@@ -149,7 +147,7 @@ public void guest(Parent form) {
 	    
 	    selfintroField = (TextArea)guestManaForm.lookup("#selfintroField");
 	    if(selfintroField != null) {
-	    	selfintroField.setText(dto.getSelfintro());
+	    	selfintroField.setText(dto.getSelfIntro());
 	    }
 			
 		GuestManaContoller guestMana = loader.getController();
@@ -186,19 +184,19 @@ public void reSelect(Parent guestManaForm) {
 		Label id = (Label)guestManaForm.lookup("#idDB");
 		
 	    if(pw.getText().equals(pwCheck.getText())) {
-    		AdminGuestDTO dto = new AdminGuestDTO();
+			MemberDTO dto = new MemberDTO();
 			dto.setPw(pw.getText());
 	    	dto.setAge(age.getValue());
 		    dto.setArea(area.getValue());
 		    dto.setGender(gender.getValue());
 		    dto.setMbti(mbti.getValue());
-		    dto.setBloodtype(blood.getValue());
+		    dto.setBloodType(blood.getValue());
 		    dto.setHeight(height.getText());
 		    dto.setDrink(drink.getValue());
 		    dto.setSmoking(smoking.getValue());
 		    dto.setName(name.getText());
 		    dto.setPhone(phone.getText());
-		    dto.setSelfintro(intro.getText());
+		    dto.setSelfIntro(intro.getText());
 		    dto.setId(id.getText());
 		    dao.reSelect(dto);
 		    CommonService.Msg("수정완료");

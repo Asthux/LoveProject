@@ -1,6 +1,6 @@
 package loveproject.register.dto;
 
-public class RegisterDTO {
+public class MemberDTO {
 	private String id;
     private String pw;
     private String name;
@@ -16,10 +16,10 @@ public class RegisterDTO {
     private String selfIntro;
     private String profile;
     private String blacklist;
-    private String good;
 
-    public RegisterDTO() {	}
-    public RegisterDTO(String id, String pw, String name, String age, String phone, String gender, String height, String area, String drink, String mbti, String smoking, String bloodType, String selfIntro, String profile, String blacklist, String good) {
+    public MemberDTO(){
+    }
+    public MemberDTO(String id, String pw, String name, String age, String phone, String gender, String height, String area, String drink, String mbti, String smoking, String bloodType, String selfIntro, String profile, String blacklist) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -35,18 +35,11 @@ public class RegisterDTO {
         this.selfIntro = selfIntro;
         this.profile = profile;
         this.blacklist = blacklist;
-        this.good = good;
     }
 
-    public String getProfile() {
-    	return profile;
-    	
-    }
+    public String getProfile() {return profile;}
 
-    public void setProfile(String profile) {
-    	this.profile = profile;
-    	
-    }
+    public void setProfile(String profile) {this.profile = profile;}
 
     public String getId() {
         return id;
@@ -56,15 +49,9 @@ public class RegisterDTO {
         this.id = id;
     }
 
-    public String getHeight() {
-    	return height;
-    	
-    }
+    public String getHeight() {return height;}
 
-    public void setHeight(String height) {
-    	this.height = height;
-    	
-    }
+    public void setHeight(String height) {this.height = height;}
 
     public String getPw() {
         return pw;
@@ -82,15 +69,9 @@ public class RegisterDTO {
         this.name = name;
     }
 
-    public String getPhone() { 
-    	return phone; 
-    	
-    }
+    public String getPhone() {return phone;}
 
-    public void setPhone(String phone) { 
-    	this.phone = phone; 
-    	
-    }
+    public void setPhone(String phone) {this.phone = phone;}
 
     public String getGender() {
         return gender;
@@ -156,22 +137,8 @@ public class RegisterDTO {
         this.selfIntro = selfIntro;
     }
 
-    public String getBlacklist() { 
-    	return blacklist; 
-    	
-    }
+    public String getBlacklist() {return blacklist;}
 
-    public void setBlacklist(String blacklist) { 
-    	this.blacklist = blacklist; 
-    	
-    }
+    public void setBlacklist(String blacklist) {this.blacklist = blacklist;}
 
-    public String getGood() { 
-    	return good; 
-    	
-    }
-
-    public void setGood(String good) { 
-    	this.good = good;
-   }
 }

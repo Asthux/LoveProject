@@ -5,32 +5,30 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import loveproject.guest.guestMatching.service.IdealService;
+import loveproject.guest.guestMatching.service.MatchingService;
 
 
-public class IdealController implements Initializable{
+public class MatchingController implements Initializable{
 	 
-	private Parent idealForm;
-	private IdealService idealSvc;
+	private Parent matchingForm;
+	private MatchingService matchingSvc;
 	public void setIdealForm(Parent idealForm) {
-		this.idealForm = idealForm;
+		this.matchingForm = idealForm;
 	}
 	public Parent getIdealForm() {
-		return idealForm;
+		return matchingForm;
 	}
 	 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		idealSvc = new IdealService();
-
+		matchingSvc = new MatchingService();
 	}
 
 	public void cancelProc() {
-		idealSvc.cancelProc(idealForm);
+		matchingSvc.cancelProc(matchingForm);
 	}
-	public void selectProc() {
-		idealSvc.selectProc(idealForm);
-	}
+	public void selectProc() {matchingSvc.selectOpenForm();}
+	public void randomSelectProc(){ matchingSvc.randomSelectOpenForm();}
+	public void requestProc(){ matchingSvc.requestOpenForm();}
 
 }

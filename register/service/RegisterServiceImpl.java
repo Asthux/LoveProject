@@ -9,7 +9,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import loveproject.commonService.CommonService;
 import loveproject.register.dao.RegisterDAO;
-import loveproject.register.dto.RegisterDTO;
+import loveproject.register.dto.MemberDTO;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -131,9 +131,9 @@ public class RegisterServiceImpl extends Application implements RegisterService 
 
         if(pw.equals(confirm)) {
             RegisterDAO dao = new RegisterDAO();
-            RegisterDTO check = dao.selectId(id);
+            MemberDTO check = dao.selectId(id);
             if(check == null) {
-                RegisterDTO dto = new RegisterDTO();
+                MemberDTO dto = new MemberDTO();
                 dto.setName(name);
                 dto.setId(id);
                 dto.setPw(pw);
@@ -167,7 +167,7 @@ public class RegisterServiceImpl extends Application implements RegisterService 
         TextField idText = (TextField)regForm.lookup("#idText");
         String id = idText.getText();
         RegisterDAO dao = new RegisterDAO();
-        RegisterDTO check = dao.selectId(id);
+        MemberDTO check = dao.selectId(id);
         if (check == null && id.length()>=5){
             CommonService.Msg("사용가능한 ID 입니다");
         }

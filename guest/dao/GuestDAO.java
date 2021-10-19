@@ -1,12 +1,13 @@
 package loveproject.guest.dao;
 
+import loveproject.register.dto.MemberDTO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import loveproject.guest.dto.GuestDTO;
 
 public class GuestDAO {
 	private Connection con;
@@ -22,8 +23,8 @@ public class GuestDAO {
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<GuestDTO> manInfo(GuestDAO dao, ArrayList<GuestDTO> list) {
-		String sql = "select * from (select id,name,age,height,area from loveProject where gender = '여' order by DBMS_RANDOM.VALUE) where rownum<10";
+	public ArrayList<MemberDTO> manInfo(GuestDAO dao, ArrayList<MemberDTO> list) {
+		String sql = "select * from (select id,name,age,height,area,good from loveProject where gender = '여' order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
 		
@@ -36,14 +37,15 @@ public class GuestDAO {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				String good = rs.getString("good");
+				list.add(new MemberDTO());
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return list;
 	}
-	public ArrayList<GuestDTO> womanInfo(GuestDAO dao, ArrayList<GuestDTO> list) {
+	public ArrayList<MemberDTO> womanInfo(GuestDAO dao, ArrayList<MemberDTO> list) {
 		String sql = "select * from (select id,name,age,height,area from loveProject where gender = '남' order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -57,14 +59,14 @@ public class GuestDAO {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				list.add(new MemberDTO());
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return list;
 	}
-	public ArrayList<GuestDTO> manInfo(GuestDTO dto, ArrayList<GuestDTO> list) {
+	public ArrayList<MemberDTO> manInfo(MemberDTO dto, ArrayList<MemberDTO> list) {
 		String sql = "select * from (select id,name,age,height,area from loveProject where gender = '여' order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -78,14 +80,14 @@ public class GuestDAO {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				list.add(new MemberDTO());
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return list;
 	}
-	public ArrayList<GuestDTO> womanInfo(GuestDTO dto, ArrayList<GuestDTO> list) {
+	public ArrayList<MemberDTO> womanInfo(MemberDTO dto, ArrayList<MemberDTO> list) {
 		String sql = "select * from (select id,name,age,height,area from loveProject where gender = '남' order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -99,7 +101,7 @@ public class GuestDAO {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				list.add(new MemberDTO());
 			}
 		} catch (Exception e) {
 			System.out.println(e);
@@ -107,7 +109,7 @@ public class GuestDAO {
 		return list;
 	}
 		
-	public GuestDTO selectId(String id) {
+	public MemberDTO selectId(String id) {
 		String sql = "SELECT * FROM loveProject WHERE id = ?";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -116,10 +118,10 @@ public class GuestDAO {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				GuestDTO dto = new GuestDTO(rs.getString(2), rs.getString(3), rs.getString(4),
+				MemberDTO dto = new MemberDTO(rs.getString(2), rs.getString(3), rs.getString(4),
                 		rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),
                 		rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15),
-                		rs.getString(16), rs.getString(17));
+                		rs.getString(16));
 				return dto;
 			}
 		} catch (Exception e) {
@@ -130,7 +132,7 @@ public class GuestDAO {
 
 
 	
-public GuestDTO modify(GuestDTO dto) {
+public MemberDTO modify(MemberDTO dto) {
 		
 		String sql = "UPDATE loveProject SET pw=?,age=?,area=?,mbti=?,height=?,drink=?,smoking=?,name=?,phone=? WHERE id =?";
 		PreparedStatement ps;
@@ -155,7 +157,7 @@ public GuestDTO modify(GuestDTO dto) {
 		}
 		return dto;
 	}
-	public ArrayList<GuestDTO> GenderInfo(String gender, ArrayList<GuestDTO> list){
+	public ArrayList<MemberDTO> GenderInfo(String gender, ArrayList<MemberDTO> list){
 		String sql = "select * from (select id,name,age,height,area from loveProject where gender = ? order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -169,7 +171,7 @@ public GuestDTO modify(GuestDTO dto) {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				list.add(new MemberDTO());
 				
 			}
 		} catch (Exception e) {
@@ -178,7 +180,7 @@ public GuestDTO modify(GuestDTO dto) {
 		return list;
 		
 	}
-	public ArrayList<GuestDTO> showInfo(GuestDAO dao, ArrayList<GuestDTO> list) {
+	public ArrayList<MemberDTO> showInfo(GuestDAO dao, ArrayList<MemberDTO> list) {
 		String sql = "select * from (select id,name,age,height,area from loveProject order by DBMS_RANDOM.VALUE) where rownum<10";
 		PreparedStatement ps;
 		ResultSet rs;
@@ -192,7 +194,7 @@ public GuestDTO modify(GuestDTO dto) {
 				String age = rs.getString("age");
 				String height = rs.getString("height");
 				String area = rs.getString("area");
-				list.add(new GuestDTO(id,name,age,height,area));
+				list.add(new MemberDTO());
 			}
 		} catch (Exception e) {
 			System.out.println(e);

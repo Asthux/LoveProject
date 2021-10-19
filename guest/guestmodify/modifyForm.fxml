@@ -5,139 +5,76 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.guestmodify.ModifyController">
-   <top>
-      <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="430.0" spacing="20.0" style="-fx-background-color: #FF7171;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loveproject.guest.guestmodify.ModifyController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="430.0">
          <children>
-            <Text layoutX="272.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="프로필 수정" textAlignment="CENTER">
+            <Label text="My Page">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Avenir Black Oblique" size="13.0" />
                </font>
-            </Text>
+            </Label>
          </children>
-      </Pane>
-   </top>
-   <right>
-      <VBox prefHeight="360.0" prefWidth="74.0" BorderPane.alignment="CENTER">
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="298.0" prefWidth="430.0">
          <children>
-            <Button fx:id="modifyButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modifyProc" style="-fx-background-color: #4C4C4C;" text="수정" textFill="#b4c8c9">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="18.0" top="260.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelProc" style="-fx-background-color: #4C4C4C;" text="취소" textFill="#b4c8c9">
-               <VBox.margin>
-                  <Insets left="18.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-   </right>
-   <center>
-      <VBox prefHeight="360.0" prefWidth="546.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="360.0" prefWidth="527.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <VBox prefHeight="360.0" prefWidth="527.0">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                           <children>
-                              <VBox prefHeight="76.0" prefWidth="154.0">
-                                 <children>
-                                    <HBox prefHeight="25.0" prefWidth="168.0" spacing="20.0">
-                                       <children>
-                                          <Label text="id" />
-                                          <Label fx:id="id" text="Label" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label prefHeight="15.0" prefWidth="19.0" text="pw">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </Label>
-                                          <PasswordField fx:id="password" prefHeight="23.0" prefWidth="120.0">
-                                             <HBox.margin>
-                                                <Insets left="13.0" />
-                                             </HBox.margin>
-                                          </PasswordField>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label prefHeight="15.0" prefWidth="32.0" text="확인" />
-                                          <PasswordField fx:id="passwordCheck" prefHeight="23.0" prefWidth="120.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <Label text="이름" />
-                              <TextField fx:id="nameText" prefHeight="23.0" prefWidth="95.0" />
-                              <Label text="성별" />
-                              <Label fx:id="gender" text="Label" />
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                           <children>
-                              <Label text="나이" />
-                              <ComboBox fx:id="ageCombo" prefHeight="23.0" prefWidth="122.0" />
-                              <Label text="거주지역" />
-                              <ComboBox fx:id="areaCombo" prefHeight="23.0" prefWidth="122.0" />
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                           <children>
-                              <Label text="음주여부" />
-                              <ComboBox fx:id="drinkCombo" prefHeight="23.0" prefWidth="112.0" />
-                              <Label text="흡연여부" />
-                              <ComboBox fx:id="smokeCombo" prefHeight="23.0" prefWidth="112.0" />
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding></HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                           <children>
-                              <Label text="mbti" />
-                              <ComboBox fx:id="mbtiCombo" prefHeight="23.0" prefWidth="112.0" />
-                              <Label text="혈액형" />
-                              <Label fx:id="blood" text="Label" />
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
-                           <children>
-                              <Label text="핸드폰 번호" />
-                              <TextField fx:id="phoneText" prefHeight="23.0" prefWidth="174.0" />
-                              <Label text="키" />
-                              <TextField fx:id="heightText" prefHeight="23.0" prefWidth="115.0" />
-                           </children>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                  </VBox>
+                  <ImageView fx:id="profile" fitHeight="208.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" onAction="#modifyOpenProc" text="사진 변경" />
                </children>
-            </HBox>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="376.0" prefWidth="94.0" spacing="19.0">
+               <children>
+                  <Label text="id" />
+                  <Label text="pw" />
+                  <Label text="pw 확인" />
+                  <Label text="이름" />
+                  <Label text="신장" />
+                  <Label text="지역" />
+                  <Label text="나이" />
+                  <Label text="MBTI" />
+                  <Label text="혈액형" />
+                  <Label text="음주" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="218.0" prefWidth="94.0" spacing="9.0">
+               <children>
+                  <Label fx:id="id" text="id" />
+                  <PasswordField fx:id="pw" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <PasswordField fx:id="confirmPw" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <TextField fx:id="height" maxHeight="-Infinity" maxWidth="-Infinity" />
+                  <ComboBox fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <TextField fx:id="age" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <TextField fx:id="mbti" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <TextField fx:id="bloodType" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+                  <ComboBox fx:id="drink" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="94.0" />
+               </children>
+            </VBox>
          </children>
-      </VBox>
-   </center>
-</BorderPane>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="400.0">
+         <children>
+            <Label text="자기소개" />
+            <TextArea fx:id="selfIntro" prefHeight="53.0" prefWidth="277.0" translateX="30.0" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="57.0" prefWidth="430.0" spacing="90.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#modifyProc" text="수정 완료" />
+            <Button mnemonicParsing="false" onAction="#cancelProc" text="취소" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

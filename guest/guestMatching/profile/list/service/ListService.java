@@ -1,4 +1,4 @@
-package loveproject.guest.profile.list.service;
+package loveproject.guest.guestMatching.profile.list.service;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import loveproject.commonService.CommonService;
-import loveproject.guest.profile.select.SelectController;
+import loveproject.guest.guestMatching.profile.select.SelectController;
 
 public class ListService {
 	
@@ -20,7 +20,7 @@ public class ListService {
 	
 	// 프로필 선택시 SelectForm을 여는 기능
 	public void selectOpenForm(String loginid, String id) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/profile/select/SelectForm.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestMatching/profile/select/SelectForm.fxml"));
 		Parent selectForm;
 		
 		try {

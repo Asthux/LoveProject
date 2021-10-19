@@ -1,4 +1,4 @@
-package loveproject.guest.profile.list;
+package loveproject.guest.guestMatching.profile.list;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
-import loveproject.guest.profile.dao.ProfileDAO;
-import loveproject.guest.profile.dto.ProfileDTO;
-import loveproject.guest.profile.list.service.ListService;
+import loveproject.guest.guestMatching.profile.dao.ProfileDAO;
+import loveproject.guest.guestMatching.profile.dto.ProfileDTO;
+import loveproject.guest.guestMatching.profile.list.service.ListService;
 
 public class ListController implements Initializable{
 	private Parent listForm;

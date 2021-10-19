@@ -1,12 +1,12 @@
-package loveproject.guest.service;
+package loveproject.guest.guestMain.service;
 
 import java.io.IOException;
 
 import loveproject.commonService.CommonService;
-import loveproject.guest.guestIdeal.IdealController;
-import loveproject.guest.guestLoginmodify.LoginModifyController;
+import loveproject.guest.guestMatching.MatchingController;
+import loveproject.guest.guestmodify.guestLoginModify.LoginModifyController;
 import loveproject.guest.guestReview.ReviewController;
-import loveproject.guest.profile.list.ListController;
+import loveproject.guest.guestMatching.profile.list.ListController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,8 +34,8 @@ private String id;
 			e.printStackTrace();
 		}
 	}
-    public void idealOpenForm(){
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestIdeal/idealForm.fxml"));
+    public void matchingOpenForm(){
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestMatching/MatchingForm.fxml"));
     	try {
 			Parent idealForm = loader.load();
 			ComboBox<String> areaCombo = (ComboBox<String>)idealForm.lookup("#areaCombo");
@@ -52,7 +52,7 @@ private String id;
             if(drinkCombo != null) {
             	drinkCombo.getItems().addAll("반병 미만", "반병~1병","1병~1병반","1병반~2병","2병~2병반","2병반~3병","3병 이상");
             }
-			IdealController idealCtrl = loader.getController();
+			MatchingController idealCtrl = loader.getController();
 			idealCtrl.setIdealForm(idealForm);
 			
 			Stage Stage = new Stage();
@@ -69,15 +69,15 @@ private String id;
     	CommonService.WindowClose(Form);
     }
     public void modifyLoginOpenForm() {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestLoginmodify/loginmodifyForm.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestmodify/guestLoginModify/loginModifyForm.fxml"));
 		try {
-			Parent loginmodifyForm = loader.load();
+			Parent loginModifyForm = loader.load();
 			
 			LoginModifyController lmodifyCtrl = loader.getController();
-			lmodifyCtrl.setLoginModifyForm(loginmodifyForm);
+			lmodifyCtrl.setLoginModifyForm(loginModifyForm);
 	           
     	Stage Stage = new Stage();
-		Stage.setScene(new Scene(loginmodifyForm));
+		Stage.setScene(new Scene(loginModifyForm));
 		Stage.setTitle("프로필수정 로그인");
 		Stage.show();
 		} catch (IOException e) {
@@ -86,7 +86,7 @@ private String id;
     }
     
     public void matchingService(String loginid) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/profile/list/ListForm.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/loveproject/guest/guestMatching/profile/list/ListForm.fxml"));
 		Parent listForm;
 		
 		try {

@@ -1,14 +1,12 @@
 package loveproject.admin.dao;
 
-import loveproject.admin.dto.AdminGuestDTO;
+import loveproject.register.dto.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 
 public class AdminDAO {
@@ -29,7 +27,7 @@ private Connection con;
 		
 	}
 	
-	public ArrayList<AdminGuestDTO> mainResult(AdminDAO dao, ArrayList<AdminGuestDTO> list){
+	public ArrayList<MemberDTO> mainResult(AdminDAO dao, ArrayList<MemberDTO> list){
 		String sql = "SELECT id,age,name,gender,area,blackList,good FROM loveProject"; // DB TALBE 명 수정 *****
 		PreparedStatement ps;
 		ResultSet rs;
@@ -38,14 +36,13 @@ private Connection con;
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				AdminGuestDTO guestDto = new AdminGuestDTO();
+				MemberDTO guestDto = new MemberDTO();
 				guestDto.setId(rs.getString(1)); 
 				guestDto.setAge(rs.getString(2));
 				guestDto.setName(rs.getString(3));	
 				guestDto.setGender(rs.getString(4));
 				guestDto.setArea(rs.getString(5));
 				guestDto.setBlacklist(rs.getString(6));
-				guestDto.setGood(rs.getString(7));
 				list.add(guestDto);
 			}
 			
@@ -56,7 +53,7 @@ private Connection con;
 	}
 	
 	
-	public ArrayList<AdminGuestDTO> resultAll(AdminDAO dao, ArrayList<AdminGuestDTO> list) {
+	public ArrayList<MemberDTO> resultAll(AdminDAO dao, ArrayList<MemberDTO> list) {
 		String sql = "SELECT * FROM loveProject"; // DB TALBE 명 수정 *****
 		PreparedStatement ps;
 		ResultSet rs;
@@ -64,7 +61,7 @@ private Connection con;
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				AdminGuestDTO guestDto = new AdminGuestDTO();
+				MemberDTO guestDto = new MemberDTO();
 				guestDto.setId(rs.getString(2)); // DB 위치에 맞게 수정****** 시퀀스num 1번으로 존재
 				guestDto.setPw(rs.getString(3));
 				guestDto.setName(rs.getString(4));
@@ -76,11 +73,10 @@ private Connection con;
 				guestDto.setDrink(rs.getString(10));
 				guestDto.setMbti(rs.getString(11));
 				guestDto.setSmoking(rs.getString(12));
-				guestDto.setBloodtype(rs.getString(13));
-				guestDto.setSelfintro(rs.getString(14));
+				guestDto.setBloodType(rs.getString(13));
+				guestDto.setSelfIntro(rs.getString(14));
 				guestDto.setProfile(rs.getString(15));				
-				guestDto.setBlacklist(rs.getString(16));			
-				guestDto.setGood(rs.getString(17));
+				guestDto.setBlacklist(rs.getString(16));
 				list.add(guestDto);
 			}
 			
@@ -93,7 +89,7 @@ private Connection con;
 	
 	
 	
-	public AdminGuestDTO result(AdminDAO dao, String id) {
+	public MemberDTO result(AdminDAO dao, String id) {
 		String sql = "SELECT * FROM loveProject WHERE id = ?"; // DB TALBE 명 수정 *****
 		PreparedStatement ps;
 		ResultSet rs;
@@ -103,7 +99,7 @@ private Connection con;
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				AdminGuestDTO guestDto = new AdminGuestDTO();
+				MemberDTO guestDto = new MemberDTO();
 				guestDto.setId(rs.getString(2)); // DB 위치에 맞게 수정****** 시퀀스num 1번으로 존재
 				guestDto.setPw(rs.getString(3));
 				guestDto.setName(rs.getString(4));
@@ -115,11 +111,10 @@ private Connection con;
 				guestDto.setDrink(rs.getString(10));
 				guestDto.setMbti(rs.getString(11));
 				guestDto.setSmoking(rs.getString(12));
-				guestDto.setBloodtype(rs.getString(13));
-				guestDto.setSelfintro(rs.getString(14));
+				guestDto.setBloodType(rs.getString(13));
+				guestDto.setSelfIntro(rs.getString(14));
 				guestDto.setProfile(rs.getString(15));				
-				guestDto.setBlacklist(rs.getString(16));			
-				guestDto.setGood(rs.getString(17));
+				guestDto.setBlacklist(rs.getString(16));
 				return guestDto;
 			}
 			
@@ -130,7 +125,7 @@ private Connection con;
 		
 	}
 	
-	public AdminGuestDTO reSelect(AdminGuestDTO guestDto) {
+	public MemberDTO reSelect(MemberDTO guestDto) {
 		
 		String sql = "UPDATE loveProject set pw = ?, name = ?, age = ?, gender = ?, phone = ?, height = ?, area = ?, bloodtype = ?, mbti = ?, drink = ?, smoking = ?, selfintro = ?  WHERE id =? ";
 		PreparedStatement ps;    // DB TALBE 명 수정 *****
@@ -144,11 +139,11 @@ private Connection con;
 			ps.setString(5, guestDto.getPhone());
 			ps.setString(6, guestDto.getHeight());
 			ps.setString(7, guestDto.getArea());
-			ps.setString(8, guestDto.getBloodtype());
+			ps.setString(8, guestDto.getBloodType());
 			ps.setString(9, guestDto.getMbti());
 			ps.setString(10, guestDto.getDrink());
 			ps.setString(11, guestDto.getSmoking());
-			ps.setString(12, guestDto.getSelfintro());
+			ps.setString(12, guestDto.getSelfIntro());
 			ps.setString(13, guestDto.getId());	
 			ps.executeUpdate();
 			

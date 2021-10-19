@@ -12,8 +12,8 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import loveproject.admin.dao.AdminDAO;
-import loveproject.admin.dto.AdminGuestDTO;
 import loveproject.admin.service.ResultService;
+import loveproject.register.dto.MemberDTO;
 
 public class ResultContoller implements Initializable{
 	@FXML private PieChart gender;
@@ -22,7 +22,7 @@ public class ResultContoller implements Initializable{
 	private Parent resultForm;
 	private ResultService resultSvc;
 	private AdminDAO dao = new AdminDAO();
-	private ArrayList<AdminGuestDTO> list = new ArrayList<AdminGuestDTO>();
+	private ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 	private int genderMan;
 	private int genderWomen;
 	private int genderTotal;
@@ -51,7 +51,7 @@ public class ResultContoller implements Initializable{
 		list = dao.resultAll(dao, list);
 		genderTotal--;
 		
-		for(AdminGuestDTO dto : list) {
+		for(MemberDTO dto : list) {
 			genderTotal++;
 			
 			if(dto.getGender().equals("남")) {
